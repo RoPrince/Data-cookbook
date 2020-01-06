@@ -1,10 +1,16 @@
 package com.data.experiments.Datacookbook.models;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 
+@Entity
 public class Device {
 
+    @Id
+    @GeneratedValue
     private int id;
 
     private String deviceName;
@@ -17,8 +23,14 @@ public class Device {
 
     }
 
-    public Device(int id, String deviceName, String description, Timestamp dateAdded) {
+    public Device(String deviceName, String description, Timestamp dateAdded) {
         this.id = id;
+        this.deviceName = deviceName;
+        this.description = description;
+        this.dateAdded = dateAdded;
+    }
+
+    public Device(int id, String deviceName, String description, Timestamp dateAdded) {
         this.deviceName = deviceName;
         this.description = description;
         this.dateAdded = dateAdded;
